@@ -3,6 +3,13 @@ let writeTaskInput = document.getElementById("write-task");
 let taskList = document.getElementById("task-list");
 let errorMsg = document.getElementById("error-msg");
 
+
+// DELETE TASK
+const deleteTask = (li) => {
+  li.remove();
+}
+
+//ADD TASK
 addTaskButton.onclick = () => {
 
 errorMsg.textContent = "";
@@ -20,5 +27,10 @@ errorMsg.textContent = "";
     li.textContent = writeTaskInput.value;
     taskList.appendChild(li);
     writeTaskInput.value = "";
+    li.onclick = () => deleteTask(li);
   }
 };
+
+
+
+
