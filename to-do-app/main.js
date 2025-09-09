@@ -1,10 +1,18 @@
 let addTaskButton = document.getElementById("add-task-btn");
 let writeTaskInput = document.getElementById("write-task");
 let taskList = document.getElementById("task-list");
+let errorMsg = document.getElementById("error-msg");
 
 addTaskButton.onclick = () => {
-  if (writeTaskInput.value.trim() || writeTaskInput.value > 50 === "") {
-    alert("Your task can't be empty or longer than 50 characters!")
+
+errorMsg.textContent = "";
+
+  if (writeTaskInput.value.trim() === "") {
+    errorMsg.textContent = "Your task can't be empty!"
+  }
+
+  else if (writeTaskInput.value.length > 50) {
+    errorMsg.textContent = "Your task can't longer than 50 characters!"
   }
 
   else {
