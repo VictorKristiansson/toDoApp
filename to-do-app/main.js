@@ -2,12 +2,31 @@ let addTaskButton = document.getElementById("add-task-btn");
 let writeTaskInput = document.getElementById("write-task");
 let taskList = document.getElementById("task-list");
 let errorMsg = document.getElementById("error-msg");
+let taskText = document.getElementById("task-text");
+
+
+// UPDATE INSTRUCTION TEXT
+const updateInstructions = () => {
+  if (taskList.children.length === 0) {
+    taskText.textContent = "Type below to add a task";
+  }
+
+  else {
+    taskText.textContent = "Click on a task to mark as done!";
+  }
+};
+
+
 
 
 // DELETE TASK
 const deleteTask = (li) => {
   li.remove();
+  updateInstructions();
 }
+
+
+
 
 //ADD TASK
 addTaskButton.onclick = () => {
@@ -28,9 +47,10 @@ errorMsg.textContent = "";
     taskList.appendChild(li);
     writeTaskInput.value = "";
     li.onclick = () => deleteTask(li);
+    updateInstructions();
   }
 };
 
-
+updateInstructions();
 
 
