@@ -17,12 +17,21 @@ const updateInstructions = () => {
 };
 
 
-
+// MARK TASK AS DONE
+const markTaskAsDone = (li) => {
+  li.remove();
+  updateInstructions();
+}
 
 // DELETE TASK
 const deleteTask = (li) => {
   li.remove();
   updateInstructions();
+}
+
+// TASK COUNTER
+const taskCounterFunction = (taskList) => {
+  let taskCounter = taskList.children.length;
 }
 
 
@@ -50,9 +59,18 @@ errorMsg.textContent = "";
 
   let markAsCompleteBtn = document.createElement("button");
   markAsCompleteBtn.textContent = "✔";
+  markAsCompleteBtn.onclick = () => {
+  deleteTask(li);
+  };
+  
+ 
+  
 
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "✖";
+  deleteBtn.onclick = () => {
+  deleteTask(li);
+  };
   
   li.appendChild(span);
   li.appendChild(markAsCompleteBtn);
