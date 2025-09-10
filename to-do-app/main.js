@@ -12,7 +12,7 @@ const updateInstructions = () => {
   }
 
   else {
-    taskText.textContent = "Click on a task to mark as done!";
+    taskText.textContent = "";
   }
 };
 
@@ -42,13 +42,28 @@ errorMsg.textContent = "";
   }
 
   else {
-    let li = document.createElement("li");
-    li.textContent = writeTaskInput.value;
-    taskList.appendChild(li);
-    writeTaskInput.value = "";
-    li.onclick = () => deleteTask(li);
-    updateInstructions();
-  }
+  let li = document.createElement("li");
+
+   // 👉 Här inne:
+  let span = document.createElement("span");
+  span.textContent = writeTaskInput.value;
+
+
+  let markAsCompleteBtn = document.createElement("button");
+  markAsCompleteBtn.textContent = "✔";
+
+  let deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "✖";
+  
+  li.appendChild(span);
+  li.appendChild(markAsCompleteBtn);
+  li.appendChild(deleteBtn);
+
+  taskList.appendChild(li);
+  writeTaskInput.value = "";
+  updateInstructions();
+}
+
 };
 
 updateInstructions();
