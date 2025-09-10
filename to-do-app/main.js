@@ -12,7 +12,7 @@ const updateInstructions = () => {
   }
 
   else {
-    taskText.textContent = "";
+    taskText.textContent = "Add another task?";
   }
 };
 
