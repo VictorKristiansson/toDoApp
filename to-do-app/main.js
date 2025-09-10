@@ -50,9 +50,15 @@ errorMsg.textContent = "";
 
   let markAsCompleteBtn = document.createElement("button");
   markAsCompleteBtn.textContent = "✔";
+  
+ 
+  
 
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "✖";
+  deleteBtn.onclick = () => {
+  deleteTask(li);
+  };
   
   li.appendChild(span);
   li.appendChild(markAsCompleteBtn);
