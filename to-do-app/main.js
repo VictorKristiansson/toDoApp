@@ -44,7 +44,6 @@ errorMsg.textContent = "";
   else {
   let li = document.createElement("li");
 
-   // 👉 Här inne:
   let span = document.createElement("span");
   span.textContent = writeTaskInput.value;
 
