@@ -7,6 +7,25 @@ let taskCounterElement = document.getElementById("task-remaining-counter");
 
 
 
+// DATE API FETCH
+const getDate = async () => {
+  try {
+    const response = await fetch("https://aisenseapi.com/services/v1/datetime");
+    if (!response.ok) {
+      throw new Error("Error fetching data!");
+    }
+
+    const dateResponse = await response.json();
+    console.log(dateResponse.datetime); 
+
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+getDate();
+
+
 // UPDATE INSTRUCTION TEXT
 const updateInstructions = () => {
   if (taskList.children.length === 0) {
