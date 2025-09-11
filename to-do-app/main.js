@@ -4,6 +4,7 @@ let taskList = document.getElementById("task-list");
 let errorMsg = document.getElementById("error-msg");
 let taskText = document.getElementById("task-text");
 let taskCounterElement = document.getElementById("task-remaining-counter");
+let todaysDate = document.getElementById("todays-date");
 
 
 
@@ -16,14 +17,16 @@ const getDate = async () => {
     }
 
     const dateResponse = await response.json();
-    console.log(dateResponse.datetime); 
+    const dateOnly = dateResponse.datetime.split("T")[0];
+    todaysDate.textContent = `Todays date : ${dateOnly}`;
+
 
   } catch (err) {
     console.error(err);
   }
 };
 
-getDate();
+
 
 
 // UPDATE INSTRUCTION TEXT
@@ -102,6 +105,7 @@ addTaskButton.onclick = () => {
 
 
 
-// RESET INSTRUCTIONS AND TASK COUNTER
+
 updateInstructions();
 taskCounterFunction();
+getDate();
