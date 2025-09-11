@@ -7,6 +7,11 @@ let taskCounterElement = document.getElementById("task-remaining-counter");
 
 
 
+// DATE API FETCH
+const getDate = () => {
+  fetch(`http://worldtimeapi.org/api/timezone/Europe`);
+}
+
 // UPDATE INSTRUCTION TEXT
 const updateInstructions = () => {
   if (taskList.children.length === 0) {
