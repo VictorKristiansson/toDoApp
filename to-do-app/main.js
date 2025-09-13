@@ -11,18 +11,16 @@ let todaysDate = document.getElementById("todays-date");
 // DATE API FETCH
 const getDate = async () => {
   try {
-    const response = await fetch("https://aisenseapi.com/services/v1/datetime");
-    if (!response.ok) {
-      throw new Error("Error fetching data!");
+    const dateResponse = await fetch("https://aisenseapi.com/services/v1/datetime");
+    if (!dateResponse.ok) {
+      throw new Error("Error fetching date data!");
     }
 
-    const dateResponse = await response.json();
-    const dateOnly = dateResponse.datetime.split("T")[0];
-    todaysDate.textContent = `Todays date : ${dateOnly}`;
-
-
-  } catch (err) {
-    console.error(err);
+    const dateJson = await dateResponse.json();
+    const dateFormatted = dateJson.datetime.split("T")[0];
+    todaysDate.textContent = `Todays date : ${dateFormatted}`;
+  } catch (error) {
+    console.error(error);
   }
 };
 
